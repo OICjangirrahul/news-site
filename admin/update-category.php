@@ -4,8 +4,24 @@ if($_SESSION["user_role"]=='0'){
     header("Location: {$hostname}/admin/post.php");
 }
 
+?>
+      <?php
+    
 
-include "header.php"; ?>
+          $id=$_GET['id'];
+          include "header.php";
+          include 'config.php';
+          $cat= $_POST["cat_name"];
+          $sql="UPDATE category set category_name ='{$cat}' WHERE category_id='{$id}'";
+          $result = mysqli_query($conn,$sql)or die("query failed");
+          
+
+
+         
+
+      
+      
+      ?>
   <div id="admin-content">
       <div class="container">
           <div class="row">
